@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ko">
 
@@ -16,6 +15,129 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="https://v04.krds.go.kr/resources/img/guide/favicon_32.png">
 	<title>레이아웃 - KRDS</title>
 	<link href="https://v04.krds.go.kr/resources/css/pattern_css.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+/* reset-ish */
+:root{
+  --blue:#0c4da2;
+  --light-blue:#eef6ff;
+  --muted:#444;
+  --card-bg:#ffffff;
+  --panel-bg:#f3f8fd;
+}
+*{box-sizing:border-box}
+body{font-family:"Noto Sans KR", "Inter", sans-serif;color:var(--muted);background:#fff;margin:0}
+#container{padding:60px 80px;}
+.inner{max-width:1300px;margin:0 auto;position:relative;}
+
+/* layout */
+.fg-wrap{display:flex;gap:40px;align-items:flex-start;position:relative;}
+
+/* left big login card */
+.login-card{
+  width:620px;
+  background:var(--card-bg);
+  border-radius:16px;
+  padding:44px;
+  box-shadow: 0 40px 90px rgba(21,33,64,0.08);
+  position:relative;
+  overflow:visible;
+}
+.login-title{color:var(--blue);font-size:40px;font-weight:700;margin:4px 0 26px}
+.field{margin-bottom:16px}
+label{display:block;font-size:13px;color:#777;margin-bottom:8px}
+.input{
+  width:100%;
+  height:56px;
+  border-radius:8px;
+  border:1px solid #e0e0e0;
+  padding:0 14px;
+  font-size:15px;
+  background:#fff;
+}
+.pw-wrap{position:relative}
+.pw-btn{
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  border:0;background:transparent;cursor:pointer;font-size:18px;color:#888
+}
+.login-btn{
+  width:100%;
+  height:52px;
+  background:var(--blue);
+  color:#fff;border-radius:8px;border:0;font-weight:600;font-size:16px;
+  margin-top:8px;cursor:pointer;
+}
+.links-row{display:flex;justify-content:space-between;margin-top:14px;font-size:14px;color:#333;}
+.hint{margin-top:22px;color:#666;font-size:14px;line-height:1.6}
+
+/* vertical tab center */
+.vert-tab{
+  position:absolute;
+  left:590px; /* overlaps card right edge as in design */
+  top:80px;
+  transform:translateX(-50%);
+  width:52px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  z-index:5;
+}
+.tab-pill{
+  width:52px;
+  height:110px;
+  background:#4b5563;
+  border-radius:18px;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transform-origin:center;
+  writing-mode:vertical-rl;
+  text-orientation:mixed;
+  font-weight:700;
+  box-shadow:0 8px 20px rgba(0,0,0,0.12);
+}
+.tab-pill.light{background:#f6f9fb;color:#0c4da2}
+
+/* right info panel */
+.info-panel{
+  flex:1;
+  min-height:420px;
+  background:linear-gradient(90deg,var(--panel-bg),#fff);
+  border-radius:16px;
+  padding:36px;
+  position:relative;
+  box-shadow: inset 0 0 0 1px rgba(12,77,162,0.02);
+}
+.info-phone{font-size:18px;color:#666;margin-bottom:14px}
+.info-phone .big{font-size:28px;color:#222;font-weight:700;display:block;margin-bottom:12px}
+.info-box{
+  background:#edf4fe;padding:18px;border-radius:10px;margin:14px 0;
+  width:80%;
+}
+.info-box h4{margin:0;font-size:18px;color:#0c4da2;font-weight:700;margin-bottom:8px}
+.info-list{margin-top:12px;font-size:15px;color:#555;line-height:1.8}
+.copyright{font-size:12px;color:#888;margin-top:18px}
+
+/* social / providers bar inside left card (bottom) */
+.provider-bar{
+  margin-top:20px;padding:14px;background:linear-gradient(180deg,#fff,#f6fbff);border-radius:10px;display:flex;gap:8px;align-items:center;
+  flex-wrap:wrap;
+}
+.provider{
+  width:44px;height:32px;border-radius:6px;background:#fff;border:1px solid #eee;display:flex;align-items:center;justify-content:center;font-size:12px;color:#666;
+  box-shadow:0 2px 6px rgba(0,0,0,0.03)
+}
+
+/* responsive smaller screens */
+@media(max-width:1100px){
+  .fg-wrap{flex-direction:column;align-items:center}
+  .vert-tab{display:none}
+  .login-card{width:100%;max-width:760px}
+  .info-panel{width:100%;max-width:760px}
+}
+</style>
 </head>
 
 <body>
@@ -717,9 +839,74 @@
 		<div id="container">
 
 			<!-- 컨텐츠 영역 -->
-			<div class="inner">
-				컨텐츠 영역
-			</div>
+			<div class="fg-wrap">
+                <div class="login-card" role="region" aria-label="로그인">
+                    <div class="login-title">로그인</div>
+
+                    <div class="field">
+                    <label for="uid">아이디</label>
+                    <input id="uid" class="input" type="text" placeholder="아이디를 입력해주세요.">
+                    </div>
+
+                    <div class="field">
+                    <label for="upw">비밀번호</label>
+                    <div class="pw-wrap">
+                        <input id="upw" class="input" type="password" placeholder="비밀번호를 입력해주세요.">
+                        <button class="pw-btn" aria-label="비밀번호 보기" onclick="togglePw()">👁</button>
+                    </div>
+                    </div>
+
+                    <button class="login-btn">로그인</button>
+
+                    <div class="links-row">
+                    <a href="#">아이디/비밀번호 찾기</a>
+                    <a href="#">회원가입</a>
+                    </div>
+
+                    <p class="hint">개인정보 보호를 위하여 비밀번호는 영문자, 숫자, 특수문자를 포함한 9~15자리로 구성되어 있습니다.</p>
+
+                    <div style="height:22px;"></div>
+
+                    <div class="provider-bar" aria-hidden="true">
+                    <div class="provider">KAK</div>
+                    <div class="provider">PASS</div>
+                    <div class="provider">PAY</div>
+                    <div class="provider">N</div>
+                    <div class="provider">NH</div>
+                    <div class="provider">T</div>
+                    <div class="provider">ICON</div>
+                    </div>
+
+                    <div style="height:8px"></div>
+                    <div style="font-size:12px;color:#999;margin-top:12px">COPYRIGHT ⓒ 2018 SUWON SPECIAL CITY ALL RIGHTS RESERVED.</div>
+                </div>
+
+                <div class="vert-tab" aria-hidden="true">
+                    <div class="tab-pill light">통합회원</div>
+                    <div class="tab-pill">비회원</div>
+                    <div class="tab-pill">비영리단체</div>
+                </div>
+
+                <aside class="info-panel" role="complementary" aria-label="안내 영역">
+                    <div class="info-phone">
+                    <span>수원시 휴먼콜센터</span>
+                    <span class="big">1899-3300, <span style="font-weight:400">031-5191-2114</span></span>
+                    </div>
+
+                    <div class="info-box">
+                    <h4>간편인증</h4>
+                    <p style="margin:0;color:#444">간편인증은 회원가입 후 이용 가능합니다.</p>
+                    </div>
+
+                    <div class="info-list">
+                    <p>• 비밀번호는 영문 대소문자를 구별하오니 유의하시기 바랍니다.</p>
+                    <p>• 개인정보 보호를 위하여 비밀번호는 영문자, 숫자, 특수문자를 포함한 9~15자리로 구성되어 있습니다.</p>
+                    <p>• 회원유지 재동의(만료일 90일전부터 홈페이지 로그인시 재동의 안내 팝업)를 하지 않을 경우 자동 탈퇴 처리됩니다.</p>
+                    </div>
+
+                    <div class="copyright">COPYRIGHT ⓒ 2018 SUWON SPECIAL CITY ALL RIGHTS RESERVED.</div>
+                </aside>
+                </div>
 			<!-- //컨텐츠 영역 -->
 		</div>
 		<!-- //컨테이너 영역 -->
@@ -793,6 +980,14 @@
 
 	<!-- 스크립트 : 컴포넌트 -->
 	<script src="https://v04.krds.go.kr/resources/js/component/ui-script.js"></script>
+    <script>
+        function togglePw(){
+        var pw = document.getElementById('upw');
+        if(!pw) return;
+        if(pw.type==='password') pw.type='text';
+        else pw.type='password';
+        }
+    </script>
 </body>
 
-</html>
+</html> 
