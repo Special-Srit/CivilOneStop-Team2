@@ -17,7 +17,30 @@
 	<!-- 부트스트랩 -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-	<link href="resources/css/pattern.css" type="text/css" rel="stylesheet" />
+	<link href="resources/css/pattern.css" type="text/css" rel="stylesheet"/>
+
+	<style>
+		/* Border */
+
+		.img{ box-sizing: border-box;
+
+		position: absolute;
+		width: 12px;
+		height: 12px;
+		left: 0px;
+		top: 8px;
+
+		/* www.suwon.go.kr/Tory Blue */
+		border: 4px solid #0C4DA2;
+		border-radius: 6px;
+
+		/* 내부 오토레이아웃 */
+		flex: none;
+		order: 0;
+		flex-grow: 0;
+		z-index: 0;
+		}
+	</style>
 </head>
 
 <body>
@@ -761,9 +784,10 @@
 
 			<!-- 컨텐츠 영역 -->
 			<div class="inner">
-				<div class="d-flex justify-content-center" style="color: #1450AA; font-size: 30px;">STEP 1. 회원유형선택</div>
-				<div style="outline: 2px solid #DEDEDE; border-radius: 20px; padding: 20px 20px 20px 20px;">회원구분에 따라
-					회원가입절차에 차이가 있으니 반드시 본인에 해당하는 경우를 선택하여<br>주시기 바랍니다.</div>
+				<div class="d-flex justify-content-center" style="color: #1450AA; font-size: 30px; margin-bottom: 20px;">STEP 1. 회원유형선택</div>
+				<div style="outline: 2px solid #DEDEDE; border-radius: 20px; padding: 20px; width: ;">
+					<img src="Css_and_other_files/img/component/icon/svgviewer-output.svg" alt="파란 점">
+					회원구분에 따라 회원가입절차에 차이가 있으니 반드시 본인에 해당하는 경우를 선택하여<br>주시기 바랍니다.</div>
 			</div>
 			<!-- //컨텐츠 영역 -->
 		</div>
