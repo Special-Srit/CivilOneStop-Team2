@@ -54,6 +54,7 @@
 		}
 
 		.info-box {
+			position: relative;
 			background: #F8F9FA;
 			border: 2px solid #DEDEDE;
 			border-radius: 12px;
@@ -61,32 +62,15 @@
 			margin-bottom: 40px;
 		}
 
-		.info-box p {
-			margin: 0;
-			line-height: 1.6;
-			color: #333;
-		}
-
-		.info-box ul {
-			list-style: none;
-			padding: 0;
-			margin: 0;
-		}
-
-		.info-box li {
-			position: relative;
-			padding-left: 20px;
-			margin-bottom: 8px;
-			color: #333;
-		}
-
-		.info-box li:before {
-			content: "●";
+		#blue-dot1 {
 			position: absolute;
-			left: 0;
-			color: #1450AA;
+			top: 25px;
 		}
-
+		#blue-dot2 {
+			position: absolute;
+			top: 65%;
+		}
+		
 		.member-type-section {
 			margin: 40px 0;
 		}
@@ -1008,10 +992,9 @@
 
 				<!-- Info Box -->
 				<div class="info-box">
-					<ul>
-						<li>회원구분에 따라 회원가입절차에 차이가 있으니 반드시 본인에 해당하는 경우를 선택하여 주시기 바랍니다.</li>
-						<li>본인이 어떤 경우 가입을 취소, 거절할 수 있으며 등의 일이 행위를 수 있습니다.</li>
-					</ul>
+					<img id="blue-dot1" src="Css_and_other_files/img/component/icon/svgviewer-output.svg" alt="파란 점"><p>회원구분에 따라 회원가입절차에 차이가 있으니 반드시 본인에 해당하는 경우를 선택하여
+					<br>주시기 바랍니다.</p>
+					<img id="blue-dot2" src="Css_and_other_files/img/component/icon/svgviewer-output.svg" alt="파란 점"><p>본인이 어떤 경우 가입을 취소, 거절할 수 있으며 등의 일이 행위를 수 있습니다.</p>
 				</div>
 
 				<!-- Member Type Cards -->
